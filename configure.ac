@@ -47,6 +47,14 @@ XORG_WITH_LINT
 XORG_LINT_LIBRARY([ICE])
 LINT_FLAGS="${LINT_FLAGS} ${ICE_CFLAGS} ${XTRANS_CFLAGS}"
 
+
+if test "x$ac_cv_lib_bsd_arc4random_buf" = xyes; then
+   BSDLIB=-lbsd
+fi
+AC_SUBST(BSDLIB)
+
+
+
 AC_CONFIG_FILES([Makefile
 		doc/Makefile
 		specs/Makefile
